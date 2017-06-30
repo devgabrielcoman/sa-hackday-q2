@@ -13,10 +13,13 @@ import QuartzCore
 // Base
 class DrawingController: BaseController {
 
-    @IBOutlet weak var drawingView: UIImageView!
+    //
+    // array of images to draw on
+    fileprivate var selectedImage: Int = 0
+    fileprivate var images: [UIImageView] = []
     
     //
-    // drawing
+    // drawing state
     var drawingColor: UIColor = UIColor.black
     var lastPoint = CGPoint.zero
     var brushWidth: CGFloat = 10.0
@@ -26,12 +29,50 @@ class DrawingController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }
 
 //
 // Logic
 extension DrawingController {
+    
+    public func addNewImage () {
+        //
+        // create the image
+        let image = UIImageView(frame: self.view.frame)
+        image.backgroundColor = UIColor.clear
+        image.layer.opacity = 0
+        self.view.addSubview(image)
+        
+        //
+        // add to array
+        images.append(image)
+    }
+    
+    public func selectImage(atIndex i: Int) {
+        
+        //
+        // previous images
+        for j in 0..<i {
+            images[j].layer.opacity = 0
+        }
+        
+        //
+        // previous image
+        if i > 0 {
+            images[i-1].layer.opacity = 0.1
+        }
+        
+        // 
+        // selected image
+        self.selectedImage = i
+        images[i].layer.opacity = 1
+        
+        //
+        // next images
+        for j in i+1..<images.count {
+            images[j].layer.opacity = 0
+        }
+    }
     
     public func setCurrentColor(_ color: UIColor) {
         self.drawingColor = color
@@ -47,8 +88,10 @@ extension DrawingController {
             lastPoint = touch.location(in: self.view)
         }
     }
-    
+
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
+        
+        let drawingView = images[self.selectedImage]
         
         // 1
         UIGraphicsBeginImageContext(view.frame.size)
@@ -73,7 +116,7 @@ extension DrawingController {
         drawingView.alpha = opacity
         UIGraphicsEndImageContext()
     }
-    
+
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         // 6
         swiped = true
@@ -85,12 +128,14 @@ extension DrawingController {
             lastPoint = currentPoint
         }
     }
-    
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !swiped {
             // draw a single point
             drawLineFrom(fromPoint: lastPoint, toPoint: lastPoint)
         }
+        
+        let drawingView = images[self.selectedImage]
         
         // Merge tempImageView into mainImageView
         UIGraphicsBeginImageContext(drawingView.frame.size)

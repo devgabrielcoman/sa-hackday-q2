@@ -44,8 +44,8 @@ extension ColorController {
         
         // get data
         let colors: [ColorModel] = [
-            ColorModel(color: UIColor.white),
             ColorModel(color: UIColor.black),
+            ColorModel(color: UIColor.white),
             ColorModel(color: UIColor.red),
             ColorModel(color: UIColor.green),
             ColorModel(color: UIColor.blue),

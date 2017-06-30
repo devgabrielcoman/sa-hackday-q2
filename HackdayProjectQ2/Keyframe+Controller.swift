@@ -24,7 +24,7 @@ class KeyframeController: BaseController {
     fileprivate var rxCollectionView: RxCollectionView?
     
     let maxKeyframes = 20
-    var keyframes: [Int] = []
+    var keyframes: [String] = []
     var selectedKeyframe = 0
     
     //
@@ -60,13 +60,32 @@ extension KeyframeController {
     func addNewKeyframe () {
         if keyframes.count < maxKeyframes {
             
-            let newValue = keyframes.count + 1
+            //
+            // new value in the keyframes
+            let newValue = "Kf \(keyframes.count + 1)"
             
+            //
+            // add data
             keyframes.append(newValue)
+            
+            //
+            // update
             rxCollectionView?.update(withData: keyframes)
             
+            //
+            // send keyframe message
             didAddNewKeyframe?()
+            
+            //
+            // always set the last created keyframe as selected
+            setSelectedKeyframe(atIndex: keyframes.count - 1)
         }
+    }
+    
+    func setSelectedKeyframe(atIndex i: Int) {
+        self.selectedKeyframe = i
+        self.didSelectKeyframe?(self.selectedKeyframe)
+        self.collectionView.reloadData()
     }
 }
 
@@ -83,20 +102,15 @@ extension KeyframeController {
                 .set(edgeInsets: { section -> UIEdgeInsets in
                     return UIEdgeInsets.zero
                 })
-                .set(sizeForCellWithReuseIdentifier: KeyframeCell.Indentifier, { (index, model: Int) -> CGSize in
+                .set(sizeForCellWithReuseIdentifier: KeyframeCell.Indentifier, { (index, model: String) -> CGSize in
                     return CGSize(width: 32, height: 32)
                 })
-                .customise(cellForReuseIdentifier: KeyframeCell.Indentifier) { (index, cell: KeyframeCell, model: Int) in
-                    cell.keyframeLabel.text = "\(model)"
+                .customise(cellForReuseIdentifier: KeyframeCell.Indentifier) { (index, cell: KeyframeCell, model: String) in
+                    cell.keyframeLabel.text = model
                     cell.backgroundColor = index.row == self.selectedKeyframe ? UIColor.lightGray : UIColor.white
                 }
-                .did(clickOnCellWithReuseIdentifier: KeyframeCell.Indentifier) { (index, model: Int) in
-                    
-                    self.selectedKeyframe = index.row
-                    
-                    self.didSelectKeyframe?(self.selectedKeyframe)
-                    
-                    self.collectionView.reloadData()
+                .did(clickOnCellWithReuseIdentifier: KeyframeCell.Indentifier) { (index, model: String) in
+                    self.setSelectedKeyframe(atIndex: index.row)
                 }
             
             break

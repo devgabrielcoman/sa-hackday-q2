@@ -206,22 +206,8 @@
                     <view key="view" contentMode="scaleToFill" id="H21-RL-cGr">
                         <rect key="frame" x="0.0" y="0.0" width="359" height="332"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WP7-Jk-8r5">
-                                <rect key="frame" x="0.0" y="0.0" width="359" height="332"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="WP7-Jk-8r5" firstAttribute="top" secondItem="H21-RL-cGr" secondAttribute="top" id="2c3-Up-giq"/>
-                            <constraint firstAttribute="bottom" secondItem="WP7-Jk-8r5" secondAttribute="bottom" id="DuQ-HN-ZBF"/>
-                            <constraint firstItem="WP7-Jk-8r5" firstAttribute="leading" secondItem="H21-RL-cGr" secondAttribute="leading" id="FGk-EA-cvq"/>
-                            <constraint firstAttribute="trailing" secondItem="WP7-Jk-8r5" secondAttribute="trailing" id="OSe-7C-EdK"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="drawingView" destination="WP7-Jk-8r5" id="sWv-9g-FEt"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yg-9c-9fk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

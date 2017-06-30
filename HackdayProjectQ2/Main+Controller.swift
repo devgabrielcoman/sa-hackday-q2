@@ -53,11 +53,13 @@ extension MainController: MainRoutingLogic {
     
     func embed(controller3: KeyframeController) {
         controller3.didAddNewKeyframe = {
-        
+            let drawingController: DrawingController? = self.getChild()
+            drawingController?.addNewImage()
         }
         
         controller3.didSelectKeyframe = { keyframe in
-        
+            let drawingController: DrawingController? = self.getChild()
+            drawingController?.selectImage(atIndex: keyframe)
         }
     }
 }
