@@ -15,7 +15,6 @@ class MainController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }
 
 //
@@ -24,6 +23,10 @@ extension MainController {
     
     @IBAction func toggleBrushSizeContainer(_ sender: Any) {
         brushSizeContainer.isHidden = !brushSizeContainer.isHidden
+    }
+    
+    @IBAction func submitCreation(_ sender: Any) {
+        self.performSegue(withIdentifier: "MainToPreview", sender: self)
     }
 }
 
@@ -61,6 +64,12 @@ extension MainController: MainRoutingLogic {
             let drawingController: DrawingController? = self.getChild()
             drawingController?.selectImage(atIndex: keyframe)
         }
+    }
+    
+    func goto(controller: PreviewController) {
+        let drawingController: DrawingController? = self.getChild()
+        let images = drawingController?.getCurrentImages()
+        controller.setImages(images!)
     }
 }
 

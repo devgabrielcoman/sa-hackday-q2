@@ -12,6 +12,7 @@ protocol MainRoutingLogic {
     func embed(controller1: ColorController)
     func embed(controller2: BrushSizeController)
     func embed(controller3: KeyframeController)
+    func goto(controller: PreviewController)
 }
 
 extension MainController {
@@ -29,6 +30,10 @@ extension MainController {
         
         if let embed = segue.destination as? KeyframeController {
             self.embed(controller3: embed)
+        }
+        
+        if let dest = segue.destination as? PreviewController {
+            self.goto(controller: dest)
         }
     }
 }

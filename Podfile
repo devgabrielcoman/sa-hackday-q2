@@ -9,4 +9,5 @@ target 'HackdayProjectQ2' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxTableAndCollectionView'
+  pod 'FLAnimatedImage', '~> 1.0'
 end

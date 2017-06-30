@@ -21,6 +21,7 @@
 		1B6875631F0657EE003FC719 /* BrushSize+Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6875621F0657EE003FC719 /* BrushSize+Controller.swift */; };
 		1BB2E5501F065F6C009B8CB5 /* Keyframe+Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2E54F1F065F6C009B8CB5 /* Keyframe+Controller.swift */; };
 		1BB2E5521F0660C8009B8CB5 /* Keyframe+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2E5511F0660C8009B8CB5 /* Keyframe+Cells.swift */; };
+		1BB2E5551F068D11009B8CB5 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2E5541F068D11009B8CB5 /* PreviewController.swift */; };
 		31C4EBD2D7A4136A1F1B09E8 /* Pods_HackdayProjectQ2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287DEFF163529ADC5BE68E25 /* Pods_HackdayProjectQ2.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		1B6875621F0657EE003FC719 /* BrushSize+Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BrushSize+Controller.swift"; sourceTree = "<group>"; };
 		1BB2E54F1F065F6C009B8CB5 /* Keyframe+Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyframe+Controller.swift"; sourceTree = "<group>"; };
 		1BB2E5511F0660C8009B8CB5 /* Keyframe+Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyframe+Cells.swift"; sourceTree = "<group>"; };
+		1BB2E5541F068D11009B8CB5 /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		287DEFF163529ADC5BE68E25 /* Pods_HackdayProjectQ2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackdayProjectQ2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B267E47E7A38538A7C3E0C4 /* Pods-HackdayProjectQ2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackdayProjectQ2.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackdayProjectQ2/Pods-HackdayProjectQ2.release.xcconfig"; sourceTree = "<group>"; };
 		84F571EB76234074E629AB13 /* Pods-HackdayProjectQ2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackdayProjectQ2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackdayProjectQ2/Pods-HackdayProjectQ2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				1B68755F1F06560D003FC719 /* BaseController.swift */,
+				1BB2E5531F068D01009B8CB5 /* Preview */,
 				1BB2E54E1F065F5C009B8CB5 /* Keyframes */,
 				1B6875611F0657E0003FC719 /* BrushSize */,
 				1B68755C1F0652BE003FC719 /* Drawing */,
@@ -160,6 +163,14 @@
 				1BB2E5511F0660C8009B8CB5 /* Keyframe+Cells.swift */,
 			);
 			name = Keyframes;
+			sourceTree = "<group>";
+		};
+		1BB2E5531F068D01009B8CB5 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				1BB2E5541F068D11009B8CB5 /* PreviewController.swift */,
+			);
+			name = Preview;
 			sourceTree = "<group>";
 		};
 		B5C4796C68B275A4CC65BD83 /* Frameworks */ = {
@@ -303,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BB2E5551F068D11009B8CB5 /* PreviewController.swift in Sources */,
 				1B6875401F064422003FC719 /* Main+Controller.swift in Sources */,
 				1B68755B1F065183003FC719 /* Main+Routing.swift in Sources */,
 				1B6875571F064DE7003FC719 /* Color+Models.swift in Sources */,

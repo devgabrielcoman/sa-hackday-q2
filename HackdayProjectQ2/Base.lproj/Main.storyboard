@@ -24,9 +24,24 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOa-gv-53j">
                                 <rect key="frame" x="0.0" y="553" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqA-Co-KAk">
+                                        <rect key="frame" x="318" y="12" width="49" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="aHP-wn-WNn"/>
+                                            <constraint firstAttribute="width" constant="49" id="gk8-Fb-qrY"/>
+                                        </constraints>
+                                        <state key="normal" image="but_post2"/>
+                                        <connections>
+                                            <action selector="submitCreation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Wf-cN-9hh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bsd-wq-ra5"/>
+                                    <constraint firstAttribute="bottom" secondItem="PqA-Co-KAk" secondAttribute="bottom" constant="11" id="feB-3P-JO8"/>
+                                    <constraint firstAttribute="trailing" secondItem="PqA-Co-KAk" secondAttribute="trailing" constant="8" id="sfv-Sv-a4t"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukP-jT-33G">
@@ -123,6 +138,7 @@
                     <navigationItem key="navigationItem" title="PopJam" id="rf6-eY-gB3"/>
                     <connections>
                         <outlet property="brushSizeContainer" destination="EhQ-nl-a9s" id="UGF-kS-Pgp"/>
+                        <segue destination="xCq-Pk-nMJ" kind="show" identifier="MainToPreview" id="Llm-pe-NE0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -338,5 +354,43 @@
             </objects>
             <point key="canvasLocation" x="1501.5999999999999" y="941.82908545727139"/>
         </scene>
+        <!--Preview Controller-->
+        <scene sceneID="WXx-Pn-ZWK">
+            <objects>
+                <viewController id="xCq-Pk-nMJ" customClass="PreviewController" customModule="HackdayProjectQ2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t5m-gC-bNI"/>
+                        <viewControllerLayoutGuide type="bottom" id="chQ-fq-7fN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q69-9k-x9T">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N36-me-NvQ">
+                                <rect key="frame" x="8" y="8" width="359" height="332"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="N36-me-NvQ" secondAttribute="height" multiplier="359:332" id="EaY-LN-CQc"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1450980392" green="0.43137254899999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="N36-me-NvQ" firstAttribute="leading" secondItem="Q69-9k-x9T" secondAttribute="leading" constant="8" id="Hy2-Ll-hac"/>
+                            <constraint firstItem="N36-me-NvQ" firstAttribute="top" secondItem="t5m-gC-bNI" secondAttribute="bottom" constant="8" id="J2q-Ze-E5F"/>
+                            <constraint firstAttribute="trailing" secondItem="N36-me-NvQ" secondAttribute="trailing" constant="8" id="Z1W-8Z-508"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="N36-me-NvQ" id="Czc-5C-Ibo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMw-J0-v1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2152.8000000000002" y="831.63418290854577"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="but_post2" width="49" height="27"/>
+    </resources>
 </document>

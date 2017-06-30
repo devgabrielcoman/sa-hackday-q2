@@ -35,6 +35,12 @@ class DrawingController: BaseController {
 // Logic
 extension DrawingController {
     
+    public func getCurrentImages () -> [UIImage] {
+        return images.map { imageview -> UIImage in
+            return imageview.image!
+        }
+    }
+    
     public func addNewImage () {
         //
         // create the image
@@ -127,22 +133,6 @@ extension DrawingController {
             // 7
             lastPoint = currentPoint
         }
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !swiped {
-            // draw a single point
-            drawLineFrom(fromPoint: lastPoint, toPoint: lastPoint)
-        }
-        
-        let drawingView = images[self.selectedImage]
-        
-        // Merge tempImageView into mainImageView
-        UIGraphicsBeginImageContext(drawingView.frame.size)
-        drawingView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .normal, alpha: 1.0)
-        drawingView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .normal, alpha: opacity)
-        drawingView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
     }
 }
 
