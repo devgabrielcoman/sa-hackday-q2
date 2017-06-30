@@ -92,12 +92,12 @@
 			isa = PBXGroup;
 			children = (
 				1B68755F1F06560D003FC719 /* BaseController.swift */,
-				1BB2E5531F068D01009B8CB5 /* Preview */,
 				1BB2E54E1F065F5C009B8CB5 /* Keyframes */,
 				1B6875611F0657E0003FC719 /* BrushSize */,
 				1B68755C1F0652BE003FC719 /* Drawing */,
 				1B6875531F064CF6003FC719 /* Color */,
 				1B6875521F0644D9003FC719 /* Main */,
+				1BB2E5531F068D01009B8CB5 /* Preview */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

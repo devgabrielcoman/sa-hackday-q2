@@ -39,6 +39,10 @@ extension PreviewController {
     
     func timerFunc () {
         
+        if images.count <= 0 {
+            return
+        }
+        
         if !(currentImage < images.count) {
             currentImage = 0
         }

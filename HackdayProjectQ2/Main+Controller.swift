@@ -64,6 +64,16 @@ extension MainController: MainRoutingLogic {
             let drawingController: DrawingController? = self.getChild()
             drawingController?.selectImage(atIndex: keyframe)
         }
+        
+        controller3.didCopyKeyframe = { original, new in
+            let drawingController: DrawingController? = self.getChild()
+            drawingController?.copyImage(atOriginalIndex: original, intoNewIndex: new)
+        }
+        
+        controller3.didDeleteKeyframe = { keyframe in
+            let drawingController: DrawingController? = self.getChild()
+            drawingController?.deleteImage(atIndex: keyframe)
+        }
     }
     
     func goto(controller: PreviewController) {

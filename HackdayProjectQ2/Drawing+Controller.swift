@@ -26,8 +26,14 @@ class DrawingController: BaseController {
     var opacity: CGFloat = 1.0
     var swiped = false
     
+    let size = UIScreen.main.bounds.size.width - 16
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
 }
 
@@ -42,19 +48,41 @@ extension DrawingController {
     }
     
     public func addNewImage () {
+    
+        let frame = CGRect(x: 0, y: 0, width: size, height: size)
+        
         //
         // create the image
-        let image = UIImageView(frame: self.view.frame)
-        image.backgroundColor = UIColor.clear
-        image.layer.opacity = 0
-        self.view.addSubview(image)
+        let imageView = UIImageView(frame: frame)
+        imageView.backgroundColor = UIColor.clear
+        imageView.layer.opacity = 0
+        
+        //
+        // set first image
+        UIGraphicsBeginImageContext(frame.size)
+        let context = UIGraphicsGetCurrentContext()
+        imageView.image?.draw(in: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
+        context?.setFillColor(UIColor.red.cgColor)
+        context?.fillPath()
+        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        //
+        // add image
+        self.view.addSubview(imageView)
         
         //
         // add to array
-        images.append(image)
+        images.append(imageView)
     }
     
     public func selectImage(atIndex i: Int) {
+        
+        //
+        // validate
+        if (i >= images.count || i < 0) {
+            return
+        }
         
         //
         // previous images
@@ -80,6 +108,37 @@ extension DrawingController {
         }
     }
     
+    public func copyImage(atOriginalIndex i: Int, intoNewIndex j: Int) {
+        
+        //
+        // validate
+        if (i >= images.count || i < 0) {
+            return
+        }
+        
+        let frame = CGRect(x: 0, y: 0, width: size, height: size)
+        let imageView = UIImageView(frame: frame)
+        imageView.backgroundColor = UIColor.clear
+        imageView.layer.opacity = 0
+        imageView.image = images[i].image
+        self.view.addSubview(imageView)
+        images.insert(imageView, at: j)
+    }
+    
+    public func deleteImage(atIndex i: Int) {
+        
+        //
+        // validate
+        if (i >= images.count || i < 0) {
+            return
+        }
+        
+        let image = images[i]
+        image.removeFromSuperview()
+        images.remove(at: i)
+        selectImage(atIndex: i - 1)
+    }
+    
     public func setCurrentColor(_ color: UIColor) {
         self.drawingColor = color
     }
@@ -96,6 +155,10 @@ extension DrawingController {
     }
 
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
+        
+        if images.count <= 0 {
+            return
+        }
         
         let drawingView = images[self.selectedImage]
         

@@ -23,7 +23,6 @@ class KeyframeController: BaseController {
     
     fileprivate var rxCollectionView: RxCollectionView?
     
-    let maxKeyframes = 20
     var keyframes: [String] = []
     var selectedKeyframe = 0
     
@@ -31,6 +30,8 @@ class KeyframeController: BaseController {
     // public callbacks
     public var didSelectKeyframe: ((Int) -> Void)?
     public var didAddNewKeyframe: ((Void) -> Void)?
+    public var didCopyKeyframe: ((Int, Int) -> Void)?
+    public var didDeleteKeyframe: ((Int) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,52 +39,112 @@ class KeyframeController: BaseController {
         //
         // set initial state
         setState(KeyframeState.initial)
-        
-        //
-        // populate with initial data
-        getInitialData()
     }
+    
 }
 
 //
 // Logic
 extension KeyframeController {
     
-    func getInitialData() {
-        addNewKeyframe()
-    }
-    
     @IBAction func addKeyframe(_ sender: Any) {
         addNewKeyframe()
     }
     
+    @IBAction func copyKeyframe(_ sender: Any) {
+        copyKeyframe()
+    }
+    
+    
+    @IBAction func deleteKeyframe(_ sender: Any) {
+        deleteKeyframe()
+    }
+    
     func addNewKeyframe () {
-        if keyframes.count < maxKeyframes {
-            
-            //
-            // new value in the keyframes
-            let newValue = "Kf \(keyframes.count + 1)"
-            
-            //
-            // add data
-            keyframes.append(newValue)
-            
-            //
-            // update
-            rxCollectionView?.update(withData: keyframes)
-            
-            //
-            // send keyframe message
-            didAddNewKeyframe?()
-            
-            //
-            // always set the last created keyframe as selected
-            setSelectedKeyframe(atIndex: keyframes.count - 1)
+        //
+        // new value in the keyframes
+        let newValue = "Kf \(keyframes.count + 1)"
+        
+        //
+        // add data
+        keyframes.append(newValue)
+        
+        //
+        // update
+        rxCollectionView?.update(withData: keyframes)
+        
+        //
+        // send keyframe message
+        didAddNewKeyframe?()
+        
+        //
+        // always set the last created keyframe as selected
+        setSelectedKeyframe(atIndex: keyframes.count - 1)
+    }
+    
+    func copyKeyframe () {
+        //
+        // 
+        if keyframes.count == 0 {
+            return
         }
+        
+        //
+        // get current keyframe
+        let current = self.selectedKeyframe
+        let next = current + 1
+        let newValue = "Kf \(next)"
+        
+        //
+        // insert new
+        keyframes.insert(newValue, at: next)
+        
+        //
+        // send message
+        didCopyKeyframe?(current, next)
+        
+        //
+        // update
+        rxCollectionView?.update(withData: keyframes)
+        
+        //
+        // select
+        setSelectedKeyframe(atIndex: next)
+    }
+    
+    func deleteKeyframe () {
+        //
+        // 
+        if (self.selectedKeyframe < 0 || self.selectedKeyframe >= keyframes.count) {
+            return
+        }
+        
+        //
+        // delete
+        keyframes.remove(at: self.selectedKeyframe)
+        
+        //
+        // send message
+        didDeleteKeyframe?(self.selectedKeyframe)
+        
+        //
+        // update
+        rxCollectionView?.update(withData: keyframes)
+        
+        //
+        // select
+        setSelectedKeyframe(atIndex: self.selectedKeyframe - 1)
     }
     
     func setSelectedKeyframe(atIndex i: Int) {
-        self.selectedKeyframe = i
+        
+        if i < 0 && keyframes.count > 0 {
+            self.selectedKeyframe = 0
+        }
+        else {
+            self.selectedKeyframe = i
+        }
+        
         self.didSelectKeyframe?(self.selectedKeyframe)
         self.collectionView.reloadData()
     }
@@ -106,7 +167,7 @@ extension KeyframeController {
                     return CGSize(width: 32, height: 32)
                 })
                 .customise(cellForReuseIdentifier: KeyframeCell.Indentifier) { (index, cell: KeyframeCell, model: String) in
-                    cell.keyframeLabel.text = model
+                    cell.keyframeLabel.text = "Kf \(index.row + 1)"
                     cell.backgroundColor = index.row == self.selectedKeyframe ? UIColor.lightGray : UIColor.white
                 }
                 .did(clickOnCellWithReuseIdentifier: KeyframeCell.Indentifier) { (index, model: String) in
