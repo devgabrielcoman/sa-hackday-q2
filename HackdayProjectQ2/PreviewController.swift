@@ -12,8 +12,10 @@ import UIKit
 // Basic
 class PreviewController: BaseController {
 
+    @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var previewView: UIImageView!
     fileprivate var images: [UIImage] = []
+    fileprivate var bgImage: UIImage?
     
     var timer = Timer()
     
@@ -21,6 +23,7 @@ class PreviewController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundView.image = bgImage
         self.preview()
     }
 }
@@ -28,6 +31,10 @@ class PreviewController: BaseController {
 //
 // Business Logic
 extension PreviewController {
+    
+    func setBackground(_ bg: UIImage?) {
+        bgImage = bg
+    }
     
     func setImages(_ images: [UIImage]) {
         self.images = images

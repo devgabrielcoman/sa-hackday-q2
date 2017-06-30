@@ -79,12 +79,17 @@ extension MainController: MainRoutingLogic {
             let drawingController: DrawingController? = self.getChild()
             drawingController?.deleteImage(atIndex: keyframe)
         }
+        
+        controller3.didShowBackground = {
+            let drawingController: DrawingController? = self.getChild()
+            drawingController?.showBackground()
+        }
     }
     
     func goto(controller: PreviewController) {
         let drawingController: DrawingController? = self.getChild()
-        let images = drawingController?.getCurrentImages()
-        controller.setImages(images!)
+        controller.setBackground(drawingController?.getBackground())
+        controller.setImages((drawingController?.getCurrentImages())!)
     }
 }
 

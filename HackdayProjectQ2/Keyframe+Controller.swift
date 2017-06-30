@@ -32,6 +32,7 @@ class KeyframeController: BaseController {
     public var didAddNewKeyframe: ((Void) -> Void)?
     public var didCopyKeyframe: ((Int, Int) -> Void)?
     public var didDeleteKeyframe: ((Int) -> Void)?
+    public var didShowBackground: ((Void) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,15 @@ class KeyframeController: BaseController {
         // set initial state
         setState(KeyframeState.initial)
     }
-    
 }
 
 //
 // Logic
 extension KeyframeController {
+    
+    @IBAction func showBackground(_ sender: Any) {
+        didShowBackground?()
+    }
     
     @IBAction func addKeyframe(_ sender: Any) {
         addNewKeyframe()

@@ -13,6 +13,9 @@ import QuartzCore
 // Base
 class DrawingController: BaseController {
 
+    @IBOutlet weak var backgroundView: UIImageView!
+    fileprivate var isBackgroundSelected: Bool = true
+    
     //
     // array of images to draw on
     fileprivate var selectedImage: Int = 0
@@ -30,10 +33,10 @@ class DrawingController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        
+        //
+        // make background visible
+        self.backgroundView.layer.opacity = 1
     }
 }
 
@@ -44,6 +47,21 @@ extension DrawingController {
     public func getCurrentImages () -> [UIImage] {
         return images.map { imageview -> UIImage in
             return imageview.image!
+        }
+    }
+    
+    public func getBackground () -> UIImage? {
+        return backgroundView.image
+    }
+    
+    public func showBackground () {
+        self.isBackgroundSelected = true
+        self.backgroundView.layer.opacity = 1
+        
+        //
+        //
+        images.forEach { img in
+            img.layer.opacity = 0
         }
     }
     
@@ -79,8 +97,17 @@ extension DrawingController {
     public func selectImage(atIndex i: Int) {
         
         //
+        // make this
+        isBackgroundSelected = false
+        backgroundView.layer.opacity = 0.1
+        
+        //
         // validate
         if (i >= images.count || i < 0) {
+            //
+            // just select the background
+            isBackgroundSelected = true
+            backgroundView.layer.opacity = 1
             return
         }
         
@@ -156,11 +183,13 @@ extension DrawingController {
 
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
         
-        if images.count <= 0 {
-            return
-        }
+        var drawingView: UIImageView! = nil
         
-        let drawingView = images[self.selectedImage]
+        if images.count <= 0 || isBackgroundSelected {
+            drawingView = backgroundView
+        } else {
+            drawingView = images[self.selectedImage]
+        }
         
         // 1
         UIGraphicsBeginImageContext(view.frame.size)
