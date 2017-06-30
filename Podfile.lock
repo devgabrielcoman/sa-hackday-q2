@@ -1,3 +1,21 @@
-PODFILE CHECKSUM: 9b4d14cc37dd5411fadb4c80baa5e1c4cd5a64c3
+PODS:
+  - RxCocoa (3.5.0):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.5.0)
+  - RxTableAndCollectionView (1.1.5):
+    - RxCocoa
+    - RxSwift
+
+DEPENDENCIES:
+  - RxCocoa
+  - RxSwift
+  - RxTableAndCollectionView
+
+SPEC CHECKSUMS:
+  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
+  RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
+  RxTableAndCollectionView: e589efbf099aae0f9951712fb3b883fdc393db1d
+
+PODFILE CHECKSUM: 21cf7c654ada58887e8d4000bc5e6a370efbcf4c
 
 COCOAPODS: 1.2.1

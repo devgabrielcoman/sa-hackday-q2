@@ -6,5 +6,7 @@ target 'HackdayProjectQ2' do
   use_frameworks!
 
   # Pods for HackdayProjectQ2
-
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxTableAndCollectionView'
 end

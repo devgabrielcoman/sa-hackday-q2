@@ -8,21 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		1B68753E1F064422003FC719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68753D1F064422003FC719 /* AppDelegate.swift */; };
-		1B6875401F064422003FC719 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68753F1F064422003FC719 /* ViewController.swift */; };
+		1B6875401F064422003FC719 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68753F1F064422003FC719 /* MainController.swift */; };
 		1B6875431F064422003FC719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6875411F064422003FC719 /* Main.storyboard */; };
 		1B6875451F064422003FC719 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B6875441F064422003FC719 /* Assets.xcassets */; };
 		1B6875481F064422003FC719 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6875461F064422003FC719 /* LaunchScreen.storyboard */; };
+		1B6875551F064D06003FC719 /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6875541F064D06003FC719 /* ColorController.swift */; };
+		1B6875571F064DE7003FC719 /* ColorController+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6875561F064DE7003FC719 /* ColorController+Models.swift */; };
+		1B6875591F064DF1003FC719 /* ColorController+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6875581F064DF1003FC719 /* ColorController+Cells.swift */; };
+		1B68755B1F065183003FC719 /* MainRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68755A1F065183003FC719 /* MainRouting.swift */; };
+		1B68755E1F0652CF003FC719 /* DrawingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68755D1F0652CF003FC719 /* DrawingController.swift */; };
+		1B6875601F06560D003FC719 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68755F1F06560D003FC719 /* BaseController.swift */; };
+		1B6875631F0657EE003FC719 /* BrushSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6875621F0657EE003FC719 /* BrushSizeController.swift */; };
 		31C4EBD2D7A4136A1F1B09E8 /* Pods_HackdayProjectQ2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287DEFF163529ADC5BE68E25 /* Pods_HackdayProjectQ2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1B68753A1F064422003FC719 /* HackdayProjectQ2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackdayProjectQ2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B68753D1F064422003FC719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B68753F1F064422003FC719 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1B68753F1F064422003FC719 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		1B6875421F064422003FC719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B6875441F064422003FC719 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B6875471F064422003FC719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B6875491F064422003FC719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B6875541F064D06003FC719 /* ColorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
+		1B6875561F064DE7003FC719 /* ColorController+Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorController+Models.swift"; sourceTree = "<group>"; };
+		1B6875581F064DF1003FC719 /* ColorController+Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorController+Cells.swift"; sourceTree = "<group>"; };
+		1B68755A1F065183003FC719 /* MainRouting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouting.swift; sourceTree = "<group>"; };
+		1B68755D1F0652CF003FC719 /* DrawingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingController.swift; sourceTree = "<group>"; };
+		1B68755F1F06560D003FC719 /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		1B6875621F0657EE003FC719 /* BrushSizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushSizeController.swift; sourceTree = "<group>"; };
 		287DEFF163529ADC5BE68E25 /* Pods_HackdayProjectQ2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackdayProjectQ2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B267E47E7A38538A7C3E0C4 /* Pods-HackdayProjectQ2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackdayProjectQ2.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackdayProjectQ2/Pods-HackdayProjectQ2.release.xcconfig"; sourceTree = "<group>"; };
 		84F571EB76234074E629AB13 /* Pods-HackdayProjectQ2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackdayProjectQ2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackdayProjectQ2/Pods-HackdayProjectQ2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,14 +75,77 @@
 		1B68753C1F064422003FC719 /* HackdayProjectQ2 */ = {
 			isa = PBXGroup;
 			children = (
-				1B68753D1F064422003FC719 /* AppDelegate.swift */,
-				1B68753F1F064422003FC719 /* ViewController.swift */,
-				1B6875411F064422003FC719 /* Main.storyboard */,
-				1B6875441F064422003FC719 /* Assets.xcassets */,
-				1B6875461F064422003FC719 /* LaunchScreen.storyboard */,
-				1B6875491F064422003FC719 /* Info.plist */,
+				1B6875511F0644CA003FC719 /* Storyboards */,
+				1B6875501F0644C4003FC719 /* Meta */,
+				1B68754F1F0644BE003FC719 /* Controllers */,
 			);
 			path = HackdayProjectQ2;
+			sourceTree = "<group>";
+		};
+		1B68754F1F0644BE003FC719 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B68755F1F06560D003FC719 /* BaseController.swift */,
+				1B6875611F0657E0003FC719 /* BrushSize */,
+				1B68755C1F0652BE003FC719 /* Drawing */,
+				1B6875531F064CF6003FC719 /* Color */,
+				1B6875521F0644D9003FC719 /* Main */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1B6875501F0644C4003FC719 /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				1B68753D1F064422003FC719 /* AppDelegate.swift */,
+				1B6875491F064422003FC719 /* Info.plist */,
+				1B6875441F064422003FC719 /* Assets.xcassets */,
+			);
+			name = Meta;
+			sourceTree = "<group>";
+		};
+		1B6875511F0644CA003FC719 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1B6875461F064422003FC719 /* LaunchScreen.storyboard */,
+				1B6875411F064422003FC719 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		1B6875521F0644D9003FC719 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1B68755A1F065183003FC719 /* MainRouting.swift */,
+				1B68753F1F064422003FC719 /* MainController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		1B6875531F064CF6003FC719 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				1B6875541F064D06003FC719 /* ColorController.swift */,
+				1B6875561F064DE7003FC719 /* ColorController+Models.swift */,
+				1B6875581F064DF1003FC719 /* ColorController+Cells.swift */,
+			);
+			name = Color;
+			sourceTree = "<group>";
+		};
+		1B68755C1F0652BE003FC719 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				1B68755D1F0652CF003FC719 /* DrawingController.swift */,
+			);
+			name = Drawing;
+			sourceTree = "<group>";
+		};
+		1B6875611F0657E0003FC719 /* BrushSize */ = {
+			isa = PBXGroup;
+			children = (
+				1B6875621F0657EE003FC719 /* BrushSizeController.swift */,
+			);
+			name = BrushSize;
 			sourceTree = "<group>";
 		};
 		B5C4796C68B275A4CC65BD83 /* Frameworks */ = {
@@ -212,8 +289,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B6875401F064422003FC719 /* ViewController.swift in Sources */,
+				1B6875401F064422003FC719 /* MainController.swift in Sources */,
+				1B68755B1F065183003FC719 /* MainRouting.swift in Sources */,
+				1B6875571F064DE7003FC719 /* ColorController+Models.swift in Sources */,
+				1B68755E1F0652CF003FC719 /* DrawingController.swift in Sources */,
+				1B6875631F0657EE003FC719 /* BrushSizeController.swift in Sources */,
+				1B6875551F064D06003FC719 /* ColorController.swift in Sources */,
 				1B68753E1F064422003FC719 /* AppDelegate.swift in Sources */,
+				1B6875601F06560D003FC719 /* BaseController.swift in Sources */,
+				1B6875591F064DF1003FC719 /* ColorController+Cells.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
