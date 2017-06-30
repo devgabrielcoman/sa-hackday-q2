@@ -28,6 +28,11 @@ extension MainController {
     @IBAction func submitCreation(_ sender: Any) {
         self.performSegue(withIdentifier: "MainToPreview", sender: self)
     }
+    
+    @IBAction func eraseAction(_ sender: Any) {
+        let drawingController: DrawingController? = self.getChild()
+        drawingController?.setCurrentColor(UIColor.white)
+    }
 }
 
 //

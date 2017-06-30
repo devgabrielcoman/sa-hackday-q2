@@ -54,6 +54,9 @@
                                             <constraint firstAttribute="width" constant="32" id="kv8-kh-Ouh"/>
                                             <constraint firstAttribute="height" constant="32" id="nqo-yt-BYj"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="eraseAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="25l-as-y84"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkH-nR-qlw">
                                         <rect key="frame" x="40" y="4" width="32" height="32"/>

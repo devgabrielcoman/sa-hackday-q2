@@ -34,7 +34,7 @@ extension PreviewController {
     }
     
     func preview() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
     }
     
     func timerFunc () {
