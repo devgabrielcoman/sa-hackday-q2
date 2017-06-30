@@ -71,8 +71,8 @@ extension ColorController {
                 .set(edgeInsets: { section -> UIEdgeInsets in
                     return UIEdgeInsets.zero
                 })
-                .set(sizeForCellWithReuseIdentifier: ColorCell.Identifier) { (index, model: ColorCell) -> CGSize in
-                    return CGSize(width: 30, height: 30)
+                .set(sizeForCellWithReuseIdentifier: ColorCell.Identifier) { (index, model: ColorModel) -> CGSize in
+                    return CGSize(width: 32, height: 32)
                 }
                 .customise(cellForReuseIdentifier: ColorCell.Identifier) { (index, cell: ColorCell, model: ColorModel) in
                     cell.backgroundColor = model.color
