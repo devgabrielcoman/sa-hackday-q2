@@ -50,5 +50,15 @@ extension MainController: MainRoutingLogic {
             drawingController?.setBrushSize(size)
         }
     }
+    
+    func embed(controller3: KeyframeController) {
+        controller3.didAddNewKeyframe = {
+        
+        }
+        
+        controller3.didSelectKeyframe = { keyframe in
+        
+        }
+    }
 }
 

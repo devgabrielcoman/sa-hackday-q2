@@ -22,4 +22,6 @@ class KeyframeCell: UICollectionViewCell {
         self.layer.borderWidth = 1
         self.layer.masksToBounds = true
     }
+    
+    
 }

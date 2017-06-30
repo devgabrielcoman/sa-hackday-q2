@@ -25,6 +25,12 @@ class KeyframeController: BaseController {
     
     let maxKeyframes = 20
     var keyframes: [Int] = []
+    var selectedKeyframe = 0
+    
+    //
+    // public callbacks
+    public var didSelectKeyframe: ((Int) -> Void)?
+    public var didAddNewKeyframe: ((Void) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +59,13 @@ extension KeyframeController {
     
     func addNewKeyframe () {
         if keyframes.count < maxKeyframes {
-            keyframes.append(keyframes.count + 1)
+            
+            let newValue = keyframes.count + 1
+            
+            keyframes.append(newValue)
             rxCollectionView?.update(withData: keyframes)
+            
+            didAddNewKeyframe?()
         }
     }
 }
@@ -77,9 +88,15 @@ extension KeyframeController {
                 })
                 .customise(cellForReuseIdentifier: KeyframeCell.Indentifier) { (index, cell: KeyframeCell, model: Int) in
                     cell.keyframeLabel.text = "\(model)"
+                    cell.backgroundColor = index.row == self.selectedKeyframe ? UIColor.lightGray : UIColor.white
                 }
                 .did(clickOnCellWithReuseIdentifier: KeyframeCell.Indentifier) { (index, model: Int) in
-                    // do nothing
+                    
+                    self.selectedKeyframe = index.row
+                    
+                    self.didSelectKeyframe?(self.selectedKeyframe)
+                    
+                    self.collectionView.reloadData()
                 }
             
             break
